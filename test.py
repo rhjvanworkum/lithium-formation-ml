@@ -1,13 +1,13 @@
 class comp:
     
-    def __init__(self) -> None:
-        self.element_composition = "hallo"
+    def __init__(self, comp) -> None:
+        self.element_composition = comp
 
-composition = comp()
-print(*composition.element_composition)
-# from matminer.featurizers import composition as cf
+composition = comp({"Li": 1, "O": 4})
 
-# elem = cf.ElementProperty.from_preset("magpie")
+from matminer.featurizers import composition as cf
 
-# feat = elem.featurize(composition)
-# print(feat)
+elem = cf.ElementProperty.from_preset("magpie")
+
+feat = elem.featurize(composition)
+print(feat)
